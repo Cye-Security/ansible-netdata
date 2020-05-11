@@ -15,3 +15,8 @@
   when: 
     - environment_file.stat.exists
     - uninstaller.stat.exists
+
+- name: Remove compiled executable
+  file:
+    path: /usr/sbin/netdata
+    state: absent
