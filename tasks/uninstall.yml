@@ -20,3 +20,4 @@
   file:
     path: /usr/sbin/netdata
     state: absent
+  become: true
