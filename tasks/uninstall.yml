@@ -5,7 +5,7 @@
 
 - stat:
     path: "/etc/netdata/.environment"
-  register: environment
+  register: environment_file
 
 - name: uninstall | Uninstalling Netdata # noqa 301
   command: "{{ netdata_uninstaller }} --yes"
@@ -13,5 +13,5 @@
     chdir: "{{ netdata_source_dir }}/packaging/installer/"
   become: true
   when: 
-    - environment.stat.exists is defined
-    - uninstaller.stat.exists is defined
+    - environment_file.stat.exists
+    - uninstaller.stat.exists
