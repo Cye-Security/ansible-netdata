@@ -8,9 +8,12 @@
   when: ansible_os_family == "RedHat"
 
 - include: install.yml
+  when: not netdata_uninstall
 
 - include: config.yml
-  when: netdata_config
+  when: 
+    - netdata_config
+    - not netdata_uninstall
 
 - include: update.yml
   when: netdata_update or netdata_update_force
