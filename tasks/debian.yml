@@ -4,6 +4,10 @@
     name: "{{ netdata_debian_pre_reqs }}"
     state: present
   become: true
+  register: pre-reqs
+  until: pre-reqs is not failed
+  retries: 5
+  delay: 30
 
 - name: debian | Installing iproute Package
   apt:
@@ -15,3 +19,6 @@
     ansible_distribution_version|int < 10) or
     (ansible_distribution == "Ubuntu" and
     ansible_distribution_version < "18.04")
+  until: iproute is not failed
+  retries: 5
+  delay: 30
