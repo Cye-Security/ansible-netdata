@@ -19,6 +19,7 @@
     ansible_distribution_version|int < 10) or
     (ansible_distribution == "Ubuntu" and
     ansible_distribution_version < "18.04")
+  register: iproute
   until: iproute is not failed
   retries: 5
   delay: 30
