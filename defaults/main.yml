@@ -3,6 +3,8 @@
 
 # Adds installer flag to enable auto updates
 # https://docs.netdata.cloud/packaging/installer/update/#auto-update
+netdata_install_method: normal
+
 netdata_auto_updates:
   enabled: true
   day: "*"
@@ -100,6 +102,7 @@ netdata_history: 3996
 
 # Defines Netdata installer script
 netdata_installer: ./netdata-installer.sh
+netdata_kickstart_installer: ./packaging/installer/kickstart.sh
 
 # When set to save netdata will save its round robin database on exit and
 # load it on startup. When set to map the cache files will be updated in

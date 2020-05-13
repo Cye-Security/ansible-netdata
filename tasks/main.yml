@@ -2,7 +2,9 @@
 # tasks file for ansible-netdata
 
 - include: debian.yml
-  when: ansible_os_family == "Debian"
+  when: 
+    - ansible_os_family == "Debian"
+    - netdata_install_method != "kickstart"
 
 - include: redhat.yml
   when: ansible_os_family == "RedHat"
