@@ -101,6 +101,10 @@ netdata_history: 3996
 # Defines Netdata installer script
 netdata_installer: ./netdata-installer.sh
 
+# Defines Netdata claim script
+netdata_claim: ./netdata-claim.sh
+netdata_cloud_url: "https://app.netdata.cloud"
+
 # When set to save netdata will save its round robin database on exit and
 # load it on startup. When set to map the cache files will be updated in
 # real time (check man mmap - do not set this on systems with heavy load or

@@ -72,3 +72,16 @@
     (ansible_service_mgr == "upstart"
     or ansible_service_mgr == "sysvinit") and
     ansible_os_family == "RedHat"
+
+- name: config | Join to war rooms
+    command: "{{ claimer_cli|join(' ') }}"
+    vars:
+      claimer_cli:
+        - "{{ netdata_claim }}"
+        - "-token={{ NETDATA_TOKEN }}"
+        - "-rooms={{ NETDATA_ROOMS }}"
+        - "-url={{ netdata_cloud_url }}"
+    args:
+      chdir: "{{ netdata_source_dir }}"
+      creates: /var/lib/netdata/cloud.d
+    become: true
