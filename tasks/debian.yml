@@ -4,6 +4,7 @@
     name: "{{ netdata_debian_pre_reqs }}"
     state: present
   become: true
+  update_cache: yes
   register: pre_reqs
   until: pre_reqs is not failed
   retries: 5
