@@ -82,7 +82,6 @@
       - "-rooms={{ NETDATA_ROOMS }}"
       - "-url={{ netdata_cloud_url }}"
   args:
-    chdir: "{{ netdata_source_dir }}"
     creates: /var/lib/netdata/cloud.d/cloud.conf
   become: true
   when:
