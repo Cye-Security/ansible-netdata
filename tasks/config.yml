@@ -83,7 +83,7 @@
       - "-url={{ netdata_cloud_url }}"
   args:
     chdir: "{{ netdata_source_dir }}"
-    creates: /var/lib/netdata/cloud.d
+    creates: /var/lib/netdata/cloud.d/cloud.conf
   become: true
   when:
     - NETDATA_TOKEN is defined
